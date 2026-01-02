@@ -20,7 +20,7 @@
 
   outputs = { self, nixpkgs, nixos-raspberrypi, disko }: 
   {
-    nixosConfigurations.artemis = nixos-raspberrypi.lib.nixosSystem {
+    nixosConfigurations.artemis = nixos-raspberrypi.lib.nixosSystemFull {
       system = "aarch64-linux";
       specialArgs = { inherit nixos-raspberrypi nixpkgs; };
       modules = [
