@@ -23,6 +23,7 @@
     #pkgs.raspberrypi.rpicam-apps
     nixos-raspberrypi.legacyPackages.${pkgs.system}.libcamera
     nixos-raspberrypi.legacyPackages.${pkgs.system}.rpicam-apps
+    pkgs.git
   ];
    
   # Network Configuration
