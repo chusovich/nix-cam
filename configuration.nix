@@ -19,8 +19,8 @@
  
  # Camera packages
   environment.systemPackages = [
-    #libcamera
-    #rpicam-apps
+    libcamera
+    rpicam-apps
     #nixos-raspberrypi.packages.${pkgs.system}.libcamera
     #nixos-raspberrypi.packages.${pkgs.system}.rpicam-apps
   ];
@@ -65,7 +65,7 @@
   
   # Tailscale
   services.tailscale = {
-    enable = true;
+    enable = false;
     authKeyFile = "/home/calebh/secrets/tailscale_key";
     extraUpFlags = [
       "--reset"
