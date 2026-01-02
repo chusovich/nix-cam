@@ -6,7 +6,7 @@
     (modulesPath + "/profiles/qemu-guest.nix")
     ./disk-config.nix
     ./hardware-configuration.nix # Include the results of the hardware scan.
-    ./pi-configtxt.nix # boot/config.txt for raspberry pi
+    #./pi-configtxt.nix # boot/config.txt for raspberry pi
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

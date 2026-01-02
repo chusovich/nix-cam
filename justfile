@@ -5,4 +5,4 @@ test:
   nix run github:nix-community/nixos-anywhere -- --flake .#artemis --vm-test
 
 rebuild:
-  nixos-rebuild switch --flake .#artemis --target-host root@artemis
+  sudo nixos-rebuild switch --flake .#artemis --target-host root@artemis

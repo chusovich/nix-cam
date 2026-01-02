@@ -13,7 +13,7 @@
             firmware = {
               label = "FIRMWARE";
               name = "firmware";
-              size = "512M";
+              size = "1G";
               type = "EF00"; # EFI System Partition (works for Pi firmware)
               content = {
                 type = "filesystem";
