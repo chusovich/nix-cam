@@ -24,6 +24,9 @@
     #nixos-raspberrypi.packages.${pkgs.system}.libcamera
     #nixos-raspberrypi.legacyPackages.${pkgs.system}.rpicam-apps
   ];
+  
+  # Trying to fix ipa path error for rpicam
+  environment.variables.LIBCAMERA_IPA_PATH = "${pkgs.libcamera}/lib/libcamera/ipa";
  
   # Network Configuration
   networking = {
