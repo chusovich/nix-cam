@@ -19,7 +19,7 @@
     ];
   };
 
-  outputs = { self, nixpkgs, nixos-raspberrypi, disko }: 
+  outputs = { self, disk, nixpkgs, nixos-raspberrypi, disko }: 
   {
     nixosConfigurations.artemis = nixos-raspberrypi.lib.nixosSystem {
       system = "aarch64-linux";
