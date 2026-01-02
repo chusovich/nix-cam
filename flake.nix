@@ -6,6 +6,7 @@
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    disk = "mmcblk0";
   };
 
   # Optional: Binary cache for the flake
@@ -22,7 +23,7 @@
   {
     nixosConfigurations.artemis = nixos-raspberrypi.lib.nixosSystem {
       system = "aarch64-linux";
-      specialArgs = { inherit nixos-raspberrypi nixpkgs; };
+      specialArgs = { inherit disk nixos-raspberrypi nixpkgs; };
       modules = [
         disko.nixosModules.disko        
         ./configuration.nix

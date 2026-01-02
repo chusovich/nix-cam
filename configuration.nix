@@ -1,4 +1,4 @@
-{ config, modulesPath, lib, pkgs, nixos-raspberrypi, ... } @ args:
+{ disk, config, modulesPath, lib, pkgs, nixos-raspberrypi, ... } @ args:
 
 {
   imports = [
