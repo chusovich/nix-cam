@@ -10,10 +10,11 @@
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  
+  users.users.root.initialPassword = "artemis";
   users.users.root.openssh.authorizedKeys.keys = [
     # change this to your ssh key
-    "# CHANGE"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII23H7VPE8Fwz0y2dbWPGedl2uleLkscGlsC+Bi+oUxX calebmhusovich@gmail.com"
   ]
  
  # Camera packages
@@ -44,6 +45,7 @@
 
   # Default user account
   users.users.calebh = {
+    initialPassword = "artemis";
     isNormalUser = true;
     description = "Caleb Husovich";
     extraGroups = [ "video" "networkmanager" "wheel" "docker" ];
