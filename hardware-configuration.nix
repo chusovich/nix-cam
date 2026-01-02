@@ -19,7 +19,7 @@
   };
 
   fileSystems."/boot/firmware" = {
-    device = "/dev/disk/by-label/FIRMWARE";
+    device = "/dev/disk/by-partlabel/FIRMWARE";
     fsType = "vfat";
     neededForBoot = true;
   };
