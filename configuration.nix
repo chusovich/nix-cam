@@ -17,16 +17,31 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII23H7VPE8Fwz0y2dbWPGedl2uleLkscGlsC+Bi+oUxX calebmhusovich@gmail.com"
   ];
 
- #Camera packages
-  environment.systemPackages = [
-    #pkgs.rpi.libcamera
-    pkgs.rpi.rpicam-apps
-    #nixos-raspberrypi.legacyPackages.${pkgs.system}.libcamera
-    #nixos-raspberrypi.legacyPackages.${pkgs.system}.rpicam-apps
-    pkgs.git
-  ];
-   
-  # Network Configuration
+  # Camera packages
+  environment = {
+    systemPackages = with pkgs; [
+      rpi.libcamera
+      rpi.rpicam-apps  
+    ];
+  };
+
+  # Setup video streaming
+  services.go2rtc = {
+    enable = true;
+    settings = {
+      streams.cam =
+        "exec:${pkgs.rpi.rpicam-apps}/bin/libcamera-vid -t 0 -n --inline --width 1440 --height 1080 --framerate 30 -o -";
+      api = {
+        listen = ":1984";
+        origin = "*";
+      };
+      webrtc.listen = ":8555";
+      rtsp.listen = "";
+      rtmp.listen = "";
+    };
+  };
+
+  #Network Configuration
   networking = {
     firewall.enable = false;
     hostName = "artemis";
