@@ -4,7 +4,7 @@
   # Nix state version
   system.stateVersion = "25.05";
 
- 
+/* 
   # Disable GUI options for packages
   nixpkgs.overlays = [
     (final: prev: {
@@ -27,7 +27,8 @@
     man.enable = false;
     nixos.enable = false;
   };
- 
+ */
+
   # Login credentials
   users.users.argus = {
     isNormalUser = true;
@@ -88,7 +89,8 @@
           params = {};
         };
       };
-      base-dt-params = {
+ 
+     base-dt-params = {
         camera_auto_detect = {
           enable = true;
           value = false;
