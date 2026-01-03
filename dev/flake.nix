@@ -38,7 +38,7 @@
       {
         name = "pi4";
         module = nixos-raspberrypi.nixosModules.raspberry-pi-4.base;
-        displayModule = nixos-raspberrypi.nixosModule.raspberry-pi-4.display-vc4;
+        displayModule = nixos-raspberrypi.nixosModules.raspberry-pi-4.display-vc4;
       }
     ];
 
