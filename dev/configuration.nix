@@ -4,7 +4,7 @@
   # Nix state version
   system.stateVersion = "25.05";
 
-  /*
+ 
   # Disable GUI options for packages
   nixpkgs.overlays = [
     (final: prev: {
@@ -18,9 +18,7 @@
       });
     })
   ];
-  */
-
-  /*
+ 
   # Remove documentation to save space
   documentation = {
     enable = false;
@@ -29,8 +27,7 @@
     man.enable = false;
     nixos.enable = false;
   };
-  */
-
+ 
   # Login credentials
   users.users.argus = {
     isNormalUser = true;
