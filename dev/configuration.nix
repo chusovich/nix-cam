@@ -93,7 +93,7 @@
         cma = {
           enable = true;
           params = { 
-	    cma-512 = true;
+	    cma = "cma-512";
           };
         };
       };
