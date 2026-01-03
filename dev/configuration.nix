@@ -87,15 +87,6 @@
           enable = true;
           params = {};
         };
-        cma = {
-          enable = true;
-          params = { 
-	    cma = {
-              enable = true; 
-              value = "cma-512";
-            };
-          };
-        };
       };
       base-dt-params = {
         camera_auto_detect = {

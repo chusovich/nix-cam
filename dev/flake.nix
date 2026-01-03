@@ -33,10 +33,12 @@
       {
         name = "pi3";
         module = nixos-raspberrypi.nixosModules.raspberry-pi-3.base;
+        displaymodule = nixos-raspberrypi.nixosModules.raspberry-pi-3.base;
       }
       {
         name = "pi4";
         module = nixos-raspberrypi.nixosModules.raspberry-pi-4.base;
+        displayModule = nixos-raspberrypi.nixosModule.raspberry-pi-4.display-vc4;
       }
     ];
 
@@ -63,7 +65,7 @@
       mkConfig = pi: camera: {
         name = "argus-${pi.name}-${camera}";
         value = nixos-raspberrypi.lib.nixosSystem (mkCamera camera // {
-          modules = [ pi.module ] ++ (mkCamera camera).modules;
+          modules = [ pi.module pi.displayModule ] ++ (mkCamera camera).modules;
         });
       };
     in
