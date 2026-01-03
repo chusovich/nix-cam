@@ -93,7 +93,7 @@
         cma = {
           enable = true;
           params = { 
-	    cma.value = 512M;
+	    cma.value = "512M";
           };
         };
       };
