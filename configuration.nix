@@ -29,7 +29,6 @@
     ];
   };
 
-/*
   # Setup video streaming
   services.go2rtc = {
     enable = true;
@@ -45,7 +44,6 @@
       rtmp.listen = "";
     };
   };
-*/
 
   #Network Configuration
   networking = {
