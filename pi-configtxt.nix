@@ -1,28 +1,12 @@
 { config, pkgs, lib, ... }:
 
 {
-  hardware = {
-    i2c.enable = true;
-    raspberry-pi.config.all = {
-      dt-overlays = {
-        imx219 = { # camera model
-          enable = true;
-          params = {};
-        };
-      };
- 
-     base-dt-params = {
-        camera_auto_detect = {
-          enable = true;
-          value = false;
-        };
-        i2c_arm = {
-          enable = true;
-          value = "on";
-        };
-        i2c_arm_baudrate = {
-          enable = true;
-          value = 1000000;
+  hardware.raspberry-pi.config.all = {
+    dt-overlays = {
+      vc4-kms-v3d = {
+        enable = true;
+        params = { 
+          cma-256.enable = true; # set cma memory to 256MB, defaults of 512MB is to high for RPi4 4GM RAM 
         };
       };
     };
