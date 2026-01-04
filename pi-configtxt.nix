@@ -1,28 +1,30 @@
 { config, pkgs, lib, ... }:
 
 {
-  hardware.raspberry-pi.config = {
-    all = { # [all] conditional filter, https://www.raspberrypi.com/documentation/computers/config_txt.html#conditional-filters
-
-      base-dt-params = {
-        i2c = {
+  hardware = {
+    i2c.enable = true;
+    raspberry-pi.config.all = {
+      dt-overlays = {
+        imx219 = { # camera model
+          enable = true;
+          params = {};
+        };
+      };
+ 
+     base-dt-params = {
+        camera_auto_detect = {
+          enable = true;
+          value = false;
+        };
+        i2c_arm = {
           enable = true;
           value = "on";
         };
+        i2c_arm_baudrate = {
+          enable = true;
+          value = 1000000;
+        };
       };
-
-      # dt-overlays = {
-      #   i2c-rtc = { 
-      #     enable = true;
-      #     params = {
-      #       ds3231 = {
-      #         enable = true;
-      #         # value = "";
-      #       };
-      #     };
-      #   };
-      # };
-
     };
   };
 }
