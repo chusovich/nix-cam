@@ -8,10 +8,49 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "usb_storage" "usbhid" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
+
+  fileSystems."/" =
+    { device = "/dev/disk/by-uuid/da6208c9-e295-4f6e-a5ac-0f4e63252437";
+      fsType = "btrfs";
+      options = [ "subvol=rootfs" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "/dev/disk/by-uuid/da6208c9-e295-4f6e-a5ac-0f4e63252437";
+      fsType = "btrfs";
+      options = [ "subvol=nix" ];
+    };
+
+  fileSystems."/var/log" =
+    { device = "/dev/disk/by-uuid/da6208c9-e295-4f6e-a5ac-0f4e63252437";
+      fsType = "btrfs";
+      options = [ "subvol=log" ];
+    };
+
+  fileSystems."/boot" =
+    { device = "systemd-1";
+      fsType = "autofs";
+    };
+
+  fileSystems."/.swapvol" =
+    { device = "/dev/disk/by-uuid/da6208c9-e295-4f6e-a5ac-0f4e63252437";
+      fsType = "btrfs";
+      options = [ "subvol=swap" ];
+    };
+
+  fileSystems."/home" =
+    { device = "/dev/disk/by-uuid/da6208c9-e295-4f6e-a5ac-0f4e63252437";
+      fsType = "btrfs";
+      options = [ "subvol=home" ];
+    };
+
+  swapDevices =
+    [ { device = "/dev/disk/by-uuid/564348fc-6576-4682-a0b9-5fbd4822abec"; }
+    ];
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 }
