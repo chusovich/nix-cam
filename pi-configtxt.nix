@@ -6,7 +6,7 @@
     dt-overlays = { 
       cma = {
         enable = true;
-        params = { cma = "cma-128" };
+        params = { cma = "cma-128"; };
       };
     };
   };
