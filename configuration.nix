@@ -14,7 +14,9 @@
   users.users.root.initialPassword = "artemis";
   users.users.root.openssh.authorizedKeys.keys = [
     # change this to your ssh key
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII23H7VPE8Fwz0y2dbWPGedl2uleLkscGlsC+Bi+oUxX calebmhusovich@gmail.com"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAII23H7VPE8Fwz0y2dbWPGedl2uleLkscGlsC+Bi+oUxX calebmhusovich@gmail.com" # for user calebh
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC8a816Tm9KOj9mpRBYjh11INcimLwmsvKs9kuwY12Nx calebmhusovich@gmail.com" # for root, passphrase: artemis
+
   ];
 
   # Camera packages
