@@ -29,12 +29,12 @@ nix.settings.extra-platforms = [ "aarch64-linux" ];
 ### 1) Build the SD Card Image
 - Clone the repo
 ```
-git clone https://github.com/nvmd/nixos-raspberrypi.git`
+git clone https://github.com/nvmd/nixos-raspberrypi.git
 ```
 - `cd nixos-raspberrypi`
 - Build the image
 ```
-sudo nix build .#installerImages.rpi4`
+sudo nix build .#installerImages.rpi4
 ```
 - Image is built in `/result/sd-image`
 
